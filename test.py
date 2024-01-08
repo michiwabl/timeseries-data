@@ -15,12 +15,18 @@ def continuous():
     y=[i for i in range(0,len(train_data[0,:]))]
     for j in range(0,len(train_data[:])):
         if train_classes[j] == 1.0:
-            plt.plot(y,np.log(train_data[j,:]), color='black')
+            plt.plot(y,(train_data[j,:]), color='black')
+            c='black'
         else:
-            plt.plot(y,np.log(train_data[j,:]), color='green')
+            plt.plot(y,(train_data[j,:]), color='green')
+            c='green'
         for i in range(len(y)):
             y[i]=y[i]+len(y)
-    plt.show()
+        try:
+            plt.plot([y[0]-1,y[0]],[(train_data[j,23]),(train_data[j+1,0])], color=c)
+        except IndexError:
+            break
+     plt.show()
 
 
 def mean():
