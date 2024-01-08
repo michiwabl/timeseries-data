@@ -20,7 +20,6 @@ def continuous():
             plt.plot(y,np.log(train_data[j,:]), color='green')
         for i in range(len(y)):
             y[i]=y[i]+len(y)
-        print(y)
     plt.show()
 
 
